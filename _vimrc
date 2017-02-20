@@ -1,8 +1,9 @@
-inoremap ( (<Esc>:call AutoParen(nr2char(getchar()))<CR>
+inoremap ( (<Esc>:call AutoParen()<CR>
 
-function! AutoParen(char)
-	call feedkeys('a', a:char, 'n')
-	if a:char != ')'
+function! AutoParen()
+  let l:char = nr2char(getchar())
+	call feedkeys('a'. l:char, 'n')
+	if l:char != ')'
 		call feedkeys(")\<Esc>i", 'n')
 	endif
 endfunction
